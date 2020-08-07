@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/96394ad6b3.js" crossorigin="anonymous"></script>
+
+  <title>Sign in/Sign up Form</title>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container signin-container">
+      <!-- Sign in form -->
+      <form action="#">
+        <h1>Sign In</h1>
+        <div class="social">
+          <a href="#"><i class="fab fa-google"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <br>or<br>
+        <input type="email" placeholder="Email"/>
+        <input type="password" placeholder="Password">
+        <button class="btn main-btn">Sign in</button>
+      </form>
+    </div> 
+    <div class="form-container signup-container">
+      <!-- Sign up form -->
+      <form action="#">
+        <h1>Sign Up</h1>
+        <div class="signup-grid">
+          <input type="text" id='firstName' placeholder="First Name">
+          <input type="text" id='lasttName' placeholder="Last Name">
+          <input type="email" id='email' placeholder="Email">
+          <input type="password" id='password' placeholder="Password">
+          <input type="password" id='confirm' placeholder="Confirm Password">
+        </div>
+        <br>or<br>
+        <div class="social">
+          <a href="#"><i class="fab fa-google"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <button class="btn main-btn">Sign up</button>
+      </form>
+    </div>
+    <!-- Panels -->
+    <div class="panel-container">
+      <div class="panels">
+        <div class="panel panel-right">
+          <h2>Welcome back!</h2>
+          <p>Sign in with your Google, Facebook or Linkedin account or use an existing one.</p>
+          <span>Don't have an account?</span>
+          <button class="btn secondary-btn" id="signUpBtn">Sign up</button>
+        </div>
+        <div class="panel panel-left">
+          <h2>Welcome !</h2>
+          <p>Sign up with your Google, Facebook or Linkedin account or create a new one.</p>
+          <span>Already have an account?</span>
+          <button class="btn secondary-btn" id="signInBtn">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

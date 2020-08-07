@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/* General */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f7f7f7;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  position: relative;
+  height: 490px;
+  width: 768px;    
+}
+
+span {
+  font-size: 13px;
+  text-decoration: underline;
+  letter-spacing: 0.5px; 
+  margin-top: 30px; 
+}
+
+p {
+  font-size: 14px;
+}
+
+/* Form syles */
+.form-container {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: #fff;
+  transition: all .6s ease-in-out;
+  box-shadow: 0px 14px 28px rgba(0,0,0,0.4);
+  border-radius: 7px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 0 50px;
+}
+
+.signin-container{
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.container.signup-active .signin-container{
+  transform: translateX(100%);
+}
+
+.signup-container{
+  left: 0;
+  width: 50%;
+  z-index: 1;
+  opacity: 0;
+}
+
+.container.signup-active .signup-container{
+  transform: translateX(100%);
+  z-index: 6;
+  opacity: 1;
+  animation: reveal .5s;
+}
+
+.signup-container form {
+  padding: 0 35px;
+}
+
+.signup-grid {
+  display: grid; 
+  grid-template-columns: 1fr 1fr;  
+  grid-template-rows: 1fr 1fr 1fr;
+  column-gap: 16px;
+  grid-template-areas: 
+    "firstName lastName"
+    "email     email"
+    "password  password"
+    "confirm    confirm";
+} 
+
+.signup-grid #firstName{
+  grid-area: firstName;
+}
+
+.signup-grid #lastName{
+  grid-area: lastName;
+}
+
+.signup-grid #email{
+  grid-area: email;
+}
+
+.signup-grid #password{
+  grid-area: password;
+}
+
+.signup-grid #confirm{
+  grid-area: confirm;
+}
+
+
+input{
+  display: inline-flex;
+  width: 100%;
+  height: 35px; 
+  border: none;
+  border-bottom: 2px solid lightgray;
+  outline: none;
+  margin: 10px 0;
+} 
+
+input:focus{
+  border-bottom: 2px solid #667eea;
+}
+
+.social {
+  height: 50px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.social a {
+  color: #222;
+  text-decoration: none;
+  border: 1px solid #DDD;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease-in .4s;
+}
+
+.social a:hover{
+  transform: scale(1.1);
+  color: #667eea;
+  border-color: #667eea;
+}
+
+/* Buttons */
+.btn {
+  color: #fff;
+  width: 100px;
+  height: 35px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+
+button:active{
+  transform: scale(0.9);
+}
+
+.main-btn {
+  margin: 20px 0;
+  background: #667eea;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1.5px solid #ddd;
+  margin: 15px 0;
+}
+
+/* Animation */
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  100% {
+    opacity: 1;
+    z-index: 6;
+  }
+}
+
+/* Panels */
+.panel-container {
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 95%;
+  top: 2.5%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;  
+  box-shadow: 0px 14px 28px rgba(0,0,0,0.3);
+}
+
+.container.signup-active .panel-container{
+  transform: translateX(-100%);
+}
+
+.panels {
+  background-image: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  left: -102%;
+	height: 100%;
+  width: 203%;
+  position: relative;
+  transform: translateX(0);
+  transition: transform .6s ease-in-out;
+}
+
+.container.signup-active .panels{
+  transform: translateX(50%);
+}
+
+.panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+  text-align: center;
+  transform: translateX(0);
+  transition: all .9s ease-in-out;
+}
+
+.container.signup-active .panels {
+  transform: translateX(50%);
+}
+
+.panel-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.signup-active .panel-right{
+  transform: translateX(50%);
+}
+
+.panel-left {
+  transform: translateX(-50%);
+}
+
+.container.signup-active .panel-left {
+  transform: translateX(0);
+}
+
+
+
+
+
+
