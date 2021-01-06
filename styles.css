@@ -2,6 +2,8 @@
 
 /* General */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -10,7 +12,6 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin: 0;
   background-color: #f7f7f7;
   font-family: "Open Sans", sans-serif;
 }
@@ -24,7 +25,7 @@ body {
 span {
   font-size: 13px;
   text-decoration: underline;
-  letter-spacing: 0.5px; 
+  letter-spacing: .5px; 
   margin-top: 30px; 
 }
 
@@ -32,14 +33,14 @@ p {
   font-size: 14px;
 }
 
-/* Form syles */
+/* Form styles */
 .form-container {
   position: absolute;
   height: 100%;
   width: 50%;
   background-color: #fff;
   transition: all .6s ease-in-out;
-  box-shadow: 0px 14px 28px rgba(0,0,0,0.4);
+  box-shadow: 0px 14px 28px rgba(0,0,0,.4);
   border-radius: 7px;
 }
 
@@ -49,7 +50,6 @@ form {
   align-items: center;
   justify-content: center;
   height: 100%;
-  text-align: center;
   padding: 0 50px;
 }
 
@@ -59,18 +59,17 @@ form {
   z-index: 2;
 }
 
-.container.signup-active .signin-container{
+.signup-active .signin-container{
   transform: translateX(100%);
 }
 
 .signup-container{
   left: 0;
   width: 50%;
-  z-index: 1;
   opacity: 0;
 }
 
-.container.signup-active .signup-container{
+.signup-active .signup-container{
   transform: translateX(100%);
   z-index: 6;
   opacity: 1;
@@ -82,10 +81,9 @@ form {
 }
 
 .signup-grid {
-  display: grid; 
-  grid-template-columns: 1fr 1fr;  
-  grid-template-rows: 1fr 1fr 1fr;
-  column-gap: 16px;
+  display: grid;   
+  grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
+  column-gap: 18px;
   grid-template-areas: 
     "firstName lastName"
     "email     email"
@@ -93,35 +91,21 @@ form {
     "confirm    confirm";
 } 
 
-.signup-grid #firstName{
-  grid-area: firstName;
-}
-
-.signup-grid #lastName{
-  grid-area: lastName;
-}
-
-.signup-grid #email{
-  grid-area: email;
-}
-
-.signup-grid #password{
-  grid-area: password;
-}
-
-.signup-grid #confirm{
-  grid-area: confirm;
-}
+#firstName{ grid-area: firstName; }
+#lastName{ grid-area: lastName; }
+#email{ grid-area: email; }
+#password{ grid-area: password; }
+#confirm{ grid-area: confirm; }
 
 
 input{
-  display: inline-flex;
+  /* display: inline-flex; */
   width: 100%;
   height: 35px; 
   border: none;
   border-bottom: 2px solid lightgray;
   outline: none;
-  margin: 10px 0;
+  margin-bottom: 10px;
 } 
 
 input:focus{
@@ -129,7 +113,6 @@ input:focus{
 }
 
 .social {
-  height: 50px;
   width: 200px;
   display: flex;
   align-items: center;
@@ -144,10 +127,10 @@ input:focus{
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  font-size: 20px;
+  font-size: 20px;  
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
   transition: ease-in .4s;
 }
 
@@ -160,11 +143,13 @@ input:focus{
 /* Buttons */
 .btn {
   color: #fff;
+  background: #667eea;
   width: 100px;
   height: 35px;
   border-radius: 10px;
   outline: none;
   border: none;
+  margin: 20px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: transform 80ms ease-in;
@@ -172,18 +157,12 @@ input:focus{
 }
 
 button:active{
-  transform: scale(0.9);
-}
-
-.main-btn {
-  margin: 20px 0;
-  background: #667eea;
+  transform: scale(.9);
 }
 
 .secondary-btn {
   background: transparent;
-  border: 1.5px solid #ddd;
-  margin: 15px 0;
+  border: 2px solid #ddd;  
 }
 
 /* Animation */
@@ -207,29 +186,25 @@ button:active{
   height: 95%;
   top: 2.5%;
   overflow: hidden;
-  transition: transform 0.6s ease-in-out;  
-  box-shadow: 0px 14px 28px rgba(0,0,0,0.3);
+  transition: transform .6s ease-in-out;  
+  box-shadow: 0px 14px 28px rgba(0,0,0,.6);
 }
 
-.container.signup-active .panel-container{
+.signup-active .panel-container{
   transform: translateX(-100%);
 }
 
 .panels {
-  background-image: linear-gradient(to right, #667eea 0%, #764ba2 100%);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background: linear-gradient(to right, #667eea 0%, #764ba2 100%) no-repeat center/cover;  
   color: #fff;
   left: -102%;
 	height: 100%;
   width: 203%;
-  position: relative;
-  transform: translateX(0);
+  position: relative;  
   transition: transform .6s ease-in-out;
 }
 
-.container.signup-active .panels{
+.signup-active .panels{
   transform: translateX(50%);
 }
 
@@ -242,34 +217,11 @@ button:active{
   align-items: center;
   justify-content: center;
   padding: 0 50px;
-  text-align: center;
-  transform: translateX(0);
+  text-align: center;  
   transition: all .9s ease-in-out;
 }
 
-.container.signup-active .panels {
-  transform: translateX(50%);
-}
-
-.panel-right {
-  right: 0;
-  transform: translateX(0);
-}
-
-.container.signup-active .panel-right{
-  transform: translateX(50%);
-}
-
-.panel-left {
-  transform: translateX(-50%);
-}
-
-.container.signup-active .panel-left {
-  transform: translateX(0);
-}
-
-
-
-
-
-
+.panel-right { right: 0; }
+.signup-active .panel-right{ transform: translateX(50%); }
+.panel-left { transform: translateX(-50%); }
+.signup-active .panel-left { transform: translateX(0); }
